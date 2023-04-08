@@ -1,0 +1,97 @@
+﻿@model HealthInsurance.Models.PoliciesReqDetail
+@{
+    ViewData["Title"] = "Buy";
+}
+
+
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Order For Insurance Policy</h4>
+        <hr />
+
+
+        <form asp-action="Buy" method="post">
+
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="policyId">Policy ID:</label>
+                <div class="col-sm-9">
+                    <input asp-for="PolicyId" class="form-control" required />
+                    <span asp-validation-for="PolicyId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="policyName">Policy Name:</label>
+                <div class="col-sm-9">
+                    <input asp-for="PolicyName" class="form-control" required />
+                    <span asp-validation-for="PolicyName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" asp-for="EmployeeId" for=" employeeId">Employee ID:</label>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(modelItem => Model.EmployeeId)
+                    <input asp-for="EmployeeId" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" asp-for="Status" for=" employeeId">Status:</label>
+                <div class="col-sm-9">
+                    <input asp-for="Status" class="form-control" readonly="readonly" value="Waiting" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="policyAmount">Policy Amount:</label>
+                <div class="col-sm-9">
+                    <input asp-for="PolicyAmount" class="form-control" required />
+                    <span asp-validation-for="PolicyAmount" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="Emi">EMI:</label>
+                <div class="col-sm-9">
+                    <input asp-for="Emi" class="form-control" required />
+                    <span asp-validation-for="Emi" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="requestDate">Request Date:</label>
+                <div class="col-sm-9">
+
+                    <input type="text" asp-for="RequestDate" class="form-control" readonly="readonly" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="companyName">Company Name:</label>
+                <div class="col-sm-9">
+                    <input asp-for="CompanyName" class="form-control" required />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="companyId">Company ID:</label>
+                <div class="col-sm-9">
+                    <input asp-for="CompanyId" class="form-control" required />
+                    <span asp-validation-for="CompanyId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="form-group row">
+                <div class="col-sm-9 offset-sm-3">
+                    <button class="btn btn-primary" type="submit">Add Policy</button>
+                    <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+                </div>
+        </form>

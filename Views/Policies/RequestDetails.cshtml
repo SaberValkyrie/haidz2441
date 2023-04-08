@@ -1,0 +1,103 @@
+﻿@model IEnumerable<HealthInsurance.Models.PoliciesReqDetail>
+
+@{
+    ViewData["Title"] = "RequestDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Policy Request Details</h2>
+        </div>
+        <div class="col-md-4">
+            <p>
+                <a asp-action="Index">Home</a> |
+          
+            </p>
+        </div>
+    </div>
+
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emi)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.PolicyId)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.PolicyName)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.PolicyAmount)
+            <th>
+                    @Html.DisplayNameFor(model => model.CompanyId)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emi)
+                </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.PolicyId)
+                </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.PolicyName)
+                </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.PolicyAmount)
+                </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.CompanyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+
+                <td>
+                    <a asp-action="Adjust" asp-route-id="@item.RequestId">Adjust</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
